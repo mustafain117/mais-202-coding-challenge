@@ -4,22 +4,26 @@ import numpy as np
 
 with open('data.csv') as file:
     datafile = csv.DictReader(file)
-    
+    #list of purposes for indexing
     purposes = ['car', 'credit_card', 'debt_consolidation', 'home_improvement', 'house', 'major_purchase', 'medical', 'moving', 'other', 'small_business', 'vacation', 'wedding']
+    #declaration of other lists
     sum_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     freq = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     average = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     
     for line in datafile:
-        index = purposes.index(line['purpose'])
-        sum_list[index] = sum_list[index] + float(line['int_rate'])
-        freq[index] = freq[index] + 1
+        #indexing each list according to the purpose
+        i = purposes.index(line['purpose'])
+        sum_list[i] = sum_list[i] + float(line['int_rate'])
+        #frequency of each purpose used later to calculate average
+        freq[i] = freq[i] + 1
 
 i = 0
 while i < len(purposes):
+    #dividing the sum of interest rates for eacg purpose by their frequency of occurance
     average[i] = round(sum_list[i]/freq[i], 3)
     i+= 1
-
+#displaying the result
 answer=np.column_stack((purposes,average))
 print(answer)
 
