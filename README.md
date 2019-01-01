@@ -1,3 +1,6 @@
+# Solution
+Using matplot.lib and numpy library on Spyder(python 3.6).
+
 # MAIS 202 - Application Coding Challenge
 
 Loans are an extremely powerful financial instrument; they have the potential to create opportunities and foster growth. To learn more about loans and what influence them, we have provided you with a csv file called *data.csv* that contains information about loans such as their interest rate, purpose, length, grade, and amount in a comma seperated format as shown below.
